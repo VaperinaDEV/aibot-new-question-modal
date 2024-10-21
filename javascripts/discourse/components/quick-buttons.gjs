@@ -19,8 +19,15 @@ export default class QuickButtons extends Component {
     return shuffledLinks.slice(0, 5); // Limit to 5 buttons
   }
 
+  get scrollableButtonWrapper() {
+    const buttonWrapper = document.querySelector('.aibot-modal__button-wrapper');
+    const threshold = 150;
+  
+    return buttonWrapper.offsetHeight > threshold ? "scrollable" : "";
+  }
+
   <template>
-    <div class="aibot-modal__button-wrapper">
+    <div class="aibot-modal__button-wrapper {{this.scrollableButtonWrapper}}">
       {{#each this.randomQuickLinks as |link|}}
         <DButton
           @action={{fn this.updateAndSubmit link.question}}
