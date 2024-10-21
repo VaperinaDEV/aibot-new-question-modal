@@ -23,9 +23,7 @@ export default class QuickButtons extends Component {
     const buttonWrapper = document.querySelector(".aibot-modal__button-wrapper");
     const threshold = 150;
 
-    if (buttonWrapper) {
-      return buttonWrapper.offsetHeight > threshold ? "scrollable" : "";
-    }
+    return buttonWrapper?.offsetHeight > threshold ? "scrollable" : "";
   }
 
   <template>
