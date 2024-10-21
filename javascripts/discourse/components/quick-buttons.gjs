@@ -29,7 +29,7 @@ export default class QuickButtons extends Component {
   };
 
   <template>
-    <div class="aibot-modal__button-wrapper {{didInsert this.scrollableButtonWrapper}}">
+    <div class="aibot-modal__button-wrapper {{did-insert this.scrollableButtonWrapper}}">
       {{#each this.randomQuickLinks as |link|}}
         <DButton
           @action={{fn this.updateAndSubmit link.question}}
