@@ -143,7 +143,7 @@
     justify-content: center;
     margin-bottom: 1em;
     .ai-question-button {
-      flex: 30% 0;
+      flex: 1 0 30%;
       border-radius: #{$quick-buttons-border-radius};
     }
     @media screen and (max-width: 600px) {
@@ -153,6 +153,7 @@
       margin-bottom: 0.5em;
       background: var(--secondary);
       border-radius: #{$mobile-quick-buttons-wrapper-border-radius};
+      width: calc(100% - 1em);
       max-height: 8em;
       overflow-y: auto;
       // hides scrollbars, but allows mouse scrolling
@@ -161,7 +162,7 @@
         height: 0;
       }
       .ai-question-button {
-        flex: calc(50% - 1.5em) 1;
+        flex: 1 0 calc(50% - 1.5em);
         border-radius: 1em;
       }
       &:after {
