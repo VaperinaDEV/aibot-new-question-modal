@@ -151,19 +151,22 @@
       font-size: var(--font-down-1);
       padding: 0.5em 0.5em 0;
       margin-bottom: 0.5em;
+
+      .ai-question-button {
+        flex: 1 0 calc(50% - 1.5em);
+        border-radius: 1em;
+      }
+    }
+    &.scrollable {
       background: var(--secondary);
       border-radius: #{$mobile-quick-buttons-wrapper-border-radius};
       width: calc(100% - 1em);
-      max-height: 8em;
+      max-height: 150px;
       overflow-y: auto;
       // hides scrollbars, but allows mouse scrolling
       scrollbar-width: none;
       &::-webkit-scrollbar {
         height: 0;
-      }
-      .ai-question-button {
-        flex: 1 0 calc(50% - 1.5em);
-        border-radius: 1em;
       }
       &:after {
         content: "";
