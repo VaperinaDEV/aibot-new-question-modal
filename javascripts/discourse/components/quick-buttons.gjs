@@ -20,36 +20,15 @@ export default class QuickButtons extends Component {
     return shuffledLinks.slice(0, 5); // Limit to 5 buttons
   }
 
-  @action
-  didInsertElement() {
-    this.checkScrollable();
-  }
-
-  checkScrollable() {
-    const buttonWrapper = document.querySelector(".aibot-modal__button-wrapper");
-    const threshold = 150;
-
-    if (buttonWrapper) {
-      console.log('Button wrapper found:', buttonWrapper);
-      console.log('Button wrapper height:', buttonWrapper.offsetHeight);
-
-      buttonWrapper.classList.toggle('scrollable', buttonWrapper.offsetHeight > threshold);
-    } else {
-      console.error('Button wrapper not found');
-    }
-  }
-
   get scrollableButtonWrapper() {
     const buttonWrapper = document.querySelector(".aibot-modal__button-wrapper");
     const threshold = 150;
 
-    if (buttonWrapper) {
-      return buttonWrapper.offsetHeight > threshold;
-    }
+    return buttonWrapper?.offsetHeight > threshold ? "scrollable" : "";
   }
 
   <template>
-    <div class="aibot-modal__button-wrapper {{if (this.scrollableButtonWrapper) 'scrollable'}}">
+    <div class="aibot-modal__button-wrapper {{didInsert this.scrollableButtonWrapper}}">
       {{#each this.randomQuickLinks as |link|}}
         <DButton
           @action={{fn this.updateAndSubmit link.question}}
